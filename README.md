@@ -1,4 +1,4 @@
-Welcome to AKKADIA/ACADIA!
+Welcome to Akkadia / Acadia!
 
 ## Getting Started
 
@@ -6,6 +6,7 @@ First, run the development server:
 
 ```bash
 npm install react next react-dom
+
 npm run dev
 # or
 yarn dev
