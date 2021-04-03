@@ -5,6 +5,7 @@ import React from 'react'
 export default function Home() {
   return (
     <div className={styles.container}>
+
       <Head>
         <title>Acadia</title>
         <link rel="icon" href="/favicon.ico" />
@@ -12,7 +13,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <p className={styles.description}>
-          MVP Here
+          Place MVP Here
         </p>
       </main>
 
