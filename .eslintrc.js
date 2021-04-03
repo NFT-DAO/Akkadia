@@ -22,7 +22,7 @@ module.exports = {
       'error', 'single'
     ],
     'semi': [
-      'error', 'always'
+      'error', 'never'
     ],
     'eqeqeq': 'error',
     'object-curly-spacing': [
@@ -38,4 +38,4 @@ module.exports = {
       version: 'detect'
     }
   }
-};
+}
