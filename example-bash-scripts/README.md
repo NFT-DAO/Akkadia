@@ -13,3 +13,5 @@ Create the transaction
     - Mint a token to the CLI wallet
 
 Send tokens to another address
+    - Put public address in receiver.addr
+    - Make sure 1.5 ADA for send and change

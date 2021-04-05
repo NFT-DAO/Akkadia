@@ -75,7 +75,7 @@ cardano-cli transaction build-raw \
 FEE=$(cardano-cli transaction calculate-min-fee \
 --tx-body-file tx.draft \
 --tx-in-count ${TXNS} \
---tx-out-count 2 \
+--tx-out-count 1 \
 --witness-count 3 \
 --mainnet \
 --protocol-params-file protocol.json \
