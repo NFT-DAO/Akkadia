@@ -1,11 +1,15 @@
 # Live Example
 
-Create the policy
+Create the policy. 
+    - Current example is mint anytime.
 
-Create the metadata
+Create the metadata default format.
+    - Current metadata is temp data.
 
-Create the minter
+Create the minter wallets and keys.
+    - Random CLI wallet
 
 Create the transaction
+    - Mint a token to the CLI wallet
 
-Mint tokens with submit
+Send tokens to another address

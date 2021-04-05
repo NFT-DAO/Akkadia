@@ -1,8 +1,18 @@
 {
-    "08ec8dacc912cb764ae8beb83f8ad935968fdd38458748da11bc8e28b5b7f3ea#0": {
+    "58c3eacc75afdb7d22d868a1b8899cd7aa6d3040f88280f3767635a14381bc3a#0": {
         "amount": [
-            2000000,
-            []
+            1803039,
+            [
+                [
+                    "149539a29b5ba8c4bffe99f291da05b2a00d539df1c190493832a61d",
+                    [
+                        [
+                            "NFTDAOToken",
+                            10000000
+                        ]
+                    ]
+                ]
+            ]
         ],
         "address": "01199e119afe936a86e550926a8eba74a9d867dd5e5eba86b07ad49591b5a913d144739626434d48d45b3677ebf3641f93fbe955d794b7a575"
     }
