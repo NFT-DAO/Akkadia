@@ -8,6 +8,7 @@ then
 else
   mkdir -p policy
 fi
+
 cd policy
 
 # Generate policy v/s key
@@ -21,9 +22,6 @@ jq -n '{scripts: [$ARGS.named], type: "all"}' \
   --arg type "sig" \
   >> policy.script
 
-cat policy.script
 
 # Create policy ID file
 echo $(cardano-cli transaction policyid --script-file policy.script) >> policy.id
-
-cat policy.id

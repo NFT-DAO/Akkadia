@@ -3,7 +3,6 @@ set -e
 
 NAME="minter"
 
-# SENDER_ADDR=""
 SENDER_ADDR=$(cat ${NAME}/${NAME}_base.addr)
 RECEIVER_ADDR=$(cat receiver.addr)
 POLICY_ID=$(cat policy/policy.id)
@@ -45,7 +44,7 @@ cardano-cli query utxo \
 --address ${SENDER_ADDR} \
 --out-file utxo.json
 
-# # transaction variables
+# transaction variables
 TXNS=$(jq length utxo.json)
 alltxin=""
 TXIN=$(jq -r --arg alltxin "" 'keys[] | . + $alltxin + " --tx-in"' utxo.json)
@@ -68,7 +67,7 @@ MINTING=$(( ${TOKEN_BALANCE} - ${TOKEN_AMT} ))
 MINT="${MINTING} ${POLICY_ID}.${ASSET_NAME}"
 SENDING="${TOKEN_AMT} ${POLICY_ID}.${ASSET_NAME}"
 
-echo "Building Draft Transaction"
+# echo "Building Draft Transaction"
 cardano-cli transaction build-raw \
 --mary-era \
 --fee 0 \
@@ -95,12 +94,8 @@ CHANGE=$(( ${ADA_BALANCE} - ${FEE} ))
 CHANGE=$(( ${CHANGE} - ${AMOUNT} ))
 echo "The change is" ${CHANGE}
 
-# ROUT=${RECEIVER_ADDR}+${AMOUNT}+'"'${SENDING}'"'
-# echo ${ROUT}
-# SOUT=${SENDER_ADDR}+${CHANGE}+'"'${MINT}'"'
-# echo ${SOUT}
 
-# # echo "Building Raw Transaction"
+# echo "Building Raw Transaction"
 cardano-cli transaction build-raw \
 --mary-era \
 --fee $FEE \

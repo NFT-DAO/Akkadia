@@ -3,7 +3,7 @@ set -e
 
 NAME="minter"
 
-### Check if a directory does not exist ###
+# Check if a directory does not exist
 if [ -d "${NAME}" ] 
 then
   exit 1
@@ -22,4 +22,5 @@ cardano-cli address build --payment-verification-key-file ${NAME}_payment.vkey -
 cardano-cli address build --payment-verification-key-file ${NAME}_payment.vkey --stake-verification-key-file ${NAME}_stake.vkey --mainnet | tee ${NAME}_base.addr
 # echo "Reward address:"
 cardano-cli stake-address build --stake-verification-key-file ${NAME}_stake.vkey --mainnet | tee ${NAME}_reward.addr
+# echo "Create QR Code"
 qr $(cat ${NAME}_base.addr) > ${NAME}"_qrcode.png"

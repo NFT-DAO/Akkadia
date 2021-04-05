@@ -3,7 +3,6 @@ set -e
 
 NAME="minter"
 
-# SENDER_ADDR=""
 SENDER_ADDR=$(cat ${NAME}/${NAME}_base.addr)
 MINTING=10000000
 POLICY_ID=$(cat policy/policy.id)
@@ -13,7 +12,7 @@ num=1000000
 AMOUNT=$(echo "${num}*${AMOUNT}" | bc)
 AMOUNT=${AMOUNT%.*}
 
-### Check if a directory does not exist ###
+# Check if a directory does not exist
 if [ -d transaction ] 
 then
   echo "Folder Exists."
@@ -45,7 +44,7 @@ cardano-cli query utxo \
 --address ${SENDER_ADDR} \
 --out-file utxo.json
 
-# # transaction variables
+# transaction variables
 TXNS=$(jq length utxo.json)
 alltxin=""
 TXIN=$(jq -r --arg alltxin "" 'keys[] | . + $alltxin + " --tx-in"' utxo.json)
@@ -60,7 +59,7 @@ FINALTIP=$(( ${DELTA} + ${TIP} ))
 
 MINT="${MINTING} ${POLICY_ID}.${ASSET_NAME}"
 
-echo "Building Draft Transaction"
+# echo "Building Draft Transaction"
 cardano-cli transaction build-raw \
 --mary-era \
 --fee 0 \
@@ -86,7 +85,7 @@ echo "The fee is" ${FEE} "to move" ${BALANCE} "Lovelace"
 CHANGE=$(( ${BALANCE} - ${FEE} ))
 echo "The change is" ${CHANGE}
 
-# # echo "Building Raw Transaction"
+# echo "Building Raw Transaction"
 cardano-cli transaction build-raw \
 --mary-era \
 --fee $FEE \
