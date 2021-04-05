@@ -1,3 +1,5 @@
+// usage note: eslint should be used to manage CODE QUALITY rules
+
 module.exports = {
   root: true,
   env: {
@@ -5,37 +7,26 @@ module.exports = {
     node: true,
     es2021: true,
   },
+  parserOptions: {
+    ecmaVersion: 12,
+    sourceType: 'module',
+  },
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
+    'prettier', // note: this must be the LAST config
   ],
-  parserOptions: {
-    ecmaVersion: 12,
-    sourceType: 'module'
-  },
   rules: {
-    'indent': [
-      'error', 2
-    ],
-    'quotes': [
-      'error', 'single'
-    ],
-    'semi': [
-      'error', 'never'
-    ],
-    'eqeqeq': 'error',
-    'object-curly-spacing': [
-      'error', 'always'
-    ],
-    'arrow-spacing': [
-      'error', { before: true, after: true }
-    ],
+    eqeqeq: 'error',
+    'prefer-const': 'error',
+    'arrow-body-style': ['error', 'always'],
+    'no-unused-vars': 'warn',
     'react/prop-types': 0,
   },
   settings: {
     react: {
-      version: 'detect'
-    }
-  }
+      version: 'detect',
+    },
+  },
 }
