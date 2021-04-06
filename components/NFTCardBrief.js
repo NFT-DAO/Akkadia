@@ -47,6 +47,18 @@ export default function NFTCardBrief({ title, creator, imageURL }) {
   imageURL = testImageURL
   creator.avatarURL = testAvatarURL
 
+  /*
+    NOTES:
+    bid time should be handled by a setInterval counting down from the time provided by the page load
+    this can be a server-render prop value when populating all the cards
+    should probably be managed by some internal countdown-timer component which also can be customized to change color at threshold
+    
+    the bid value needs to be updated dynamically
+    push notification from server?
+    polling?
+    websockets?
+  */
+
   const testBidString = '400 ₳'
   const testBidTime = '00:12:23'
 
