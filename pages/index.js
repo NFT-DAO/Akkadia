@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import React from 'react'
+import NFTCardBrief from '../components/NFTCardBrief'
 
 export default function Home() {
   return (
@@ -11,7 +12,7 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <p className={styles.description}>NextJS App Is Working!</p>
+        <NFTCardBrief title='samurai' creator={{ name: 'flaptraps' }} />
       </main>
     </div>
   )
