@@ -67,13 +67,13 @@ export default function NFTCardBrief({ title, creator, imageURL }) {
         </CardContent>
         <CardContent className={classes.content2}>
           <Grid container>
-            <Grid sm>
+            <Grid item sm>
               <Typography className={classes.tickerLabels}>
                 Current Bid
               </Typography>
               <Typography>{testBidString}</Typography>
             </Grid>
-            <Grid sm>
+            <Grid item sm>
               <Typography className={classes.tickerLabels}>
                 Ending in
               </Typography>
