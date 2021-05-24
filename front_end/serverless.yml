@@ -1,4 +1,4 @@
 akkadia:
-  component: "@sls-next/serverless-component@1.18.0"
+  component: '@sls-next/serverless-component@1.18.0'
   inputs:
-    domain: ["www", "akkadia.link"] # [ sub-domain, domain ]
+    domain: ['www', 'akkadia.link'] # [ sub-domain, domain ]
