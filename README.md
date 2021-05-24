@@ -1,4 +1,4 @@
-Welcome to Akkadia / Acadia!
+Welcome to Akkadia!
 
 ## Frontend
 
