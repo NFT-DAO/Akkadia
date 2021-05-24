@@ -5,6 +5,7 @@ module.exports = {
   env: {
     commonjs: true,
     node: true,
+    browser: true,
     es2021: true,
   },
   parserOptions: {

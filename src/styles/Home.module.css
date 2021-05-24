@@ -1,6 +1,6 @@
 .container {
   min-height: 100vh;
-  padding: 0 0.5rem;
+  padding: 0 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -8,11 +8,19 @@
 }
 
 .main {
-  padding: 5rem 0;
+  width: 100%;
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
+}
+
+/* css-modules composes doesn't work for some reason */
+.userMain {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
   align-items: center;
 }
 
