@@ -25,7 +25,7 @@ const ComingSoonButton = ({ children, variant, size, color }) => {
 
   const showButtonText = () => {
     comingSoonControl.start({
-      y: ['0rem', overflowPosY],
+      y: overflowPosY,
       transition: { duration: 0.2 },
     })
     buttonTextControl.start({ opacity: 1, transition: { duration: 0.1 } })
@@ -48,6 +48,8 @@ const ComingSoonButton = ({ children, variant, size, color }) => {
     <Button
       onMouseEnter={showComingSoon}
       onMouseLeave={showButtonText}
+      onClick={showComingSoon}
+      onBlur={showButtonText}
       style={{ overflow: 'hidden' }}
       variant={variant}
       size={size}
