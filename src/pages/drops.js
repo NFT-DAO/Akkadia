@@ -86,15 +86,17 @@ const UpcomingDropsSection = () => {
             title='Mary Shelley'
             author='muntface'
             authorLink='https://twitter.com/Munt_Face'
+            authorIconSrc='author_icon_muntface.png'
             description='Mary Shelley celebrates the Cardano Mary hardfork, which ushered in a new paradigm in native token creation'
             dropDate={new Date(2021, 5, 3, 18)}
           />
           <UpcomingDrop
             imageSrc='promo_1.png'
-            title='Princess of Parallelograms'
+            title='Ada Lovelace - The Enchantress of Numbers'
             author='newmindflow'
             authorLink='https://twitter.com/newmindflow'
-            description='Princess of parallelograms was the nickname given to ADA Lovelace by the poet Lord Byron'
+            authorIconSrc='author_icon_newmindflow.png'
+            description='Forget this world and all its troubles and if possible its multitudinous Charlatans—every thing in short but the Enchantress of Number. - Charles Babbage'
             dropDate={new Date(2021, 5, 10, 18)}
           />
         </Container>
@@ -126,6 +128,7 @@ const UpcomingDrop = ({
   title,
   author,
   authorLink,
+  authorIconSrc,
   description,
   dropDate,
 }) => {
@@ -153,7 +156,7 @@ const UpcomingDrop = ({
               target='twitter'
               style={{ display: 'flex', alignItems: 'center' }}
             >
-              <Avatar></Avatar>
+              <Avatar src={authorIconSrc} />
               <Typography
                 variant='h2'
                 style={{ marginLeft: '0.3rem', color: '#777' }}
