@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# Copyright 2021 NFT-DAO LLC
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#     http://www.apache.org/licenses/LICENSE-2.0
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+set -e
+
+if  [ -z "$1" ] || \
+    [[ "$1" != "bastion" ]] && \
+    [[ "$1" != "cardano-node" ]]; then
+    echo "usage: bin/connect [ bastion | cardano-node ]"
+    exit 1
+fi
+
+
+INSTANCE_ID=$(aws ec2 describe-instances --query "Reservations[?not_null(Instances[?State.Name == 'running' && Tags[?Value == '$1']])].Instances[*].InstanceId | []" --output text)
+
+if [ -z "${INSTANCE_ID}" ]; then
+    echo "Can't connect to the $1 EC2 instance"
+    echo "It may still be launching, so wait couple of minutes and try again."
+    echo "If it still doesn't work, check if there is a $1 EC2 instance running in the AWS Console "
+    exit 1
+fi
+
+aws ssm start-session --target ${INSTANCE_ID}
+
+exit 0
