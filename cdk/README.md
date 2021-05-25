@@ -1,52 +1,38 @@
 # Akkadia AWS Infrastructure 
 
 ## Prerequisites 
-_Note: This instructions have been tested on MacOs Catalina v10.15.7_
+_Note: These instructions have been tested only on MacOs Catalina v10.15.7_
 
-Check if Node is already installed:
+#### Node
 ```
+$ brew install node
 $ node -v
 $ npm -v
 ```
-if not:
-```
-$ brew install node
-```
+
 If brew is not installed:
 ```
 $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
 #### AWS CDK
-Check if AWS CDK is already installed:
-```
-$ cdk --version
-```
-If not:
 ```
 $ npm install -g aws-cdk
+$ cdk --version
 ```
 
 #### AWS CLI
-Check if AWS CLI is already installed: 
-```
-$ aws --version
-```
-If not:
 ```
 $ curl https://awscli.amazonaws.com/AWSCLIV2.pkg -o /tmp/AWSCLIV2.pkg
 $ sudo installer -pkg /tmp/AWSCLIV2.pkg -target /
 $ rm /tmp/AWSCLIV2.pkg
+$ aws --version
 ```
-
 #### JQ
-Check if JQ is installed:
-```
-$ jq --version
-```
-If, not:
+
 ```
 $ brew install jq
+$ jq --version
 ```
 
 #### Session Manager Plugin
@@ -84,26 +70,24 @@ $ source ~/.zshrc
 If your shell is not ZSH, then use `.bash_profile` for Bash, or whatever it is for something else you might have.
 
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+## CI/CD Pipelines
 
-## CI/CD Pipeline
-CI/CD pipeline is set up using [this doc](https://docs.aws.amazon.com/cdk/latest/guide/codepipeline_example.html) and this [Medium post](https://medium.com/swlh/github-codepipeline-with-aws-cdk-and-typescript-d37183463302) 
+### Creating GitHub OAuth token
 
-## Creating GitHub OAuth token
 Use [this doc](https://cloudaffaire.com/how-to-trigger-a-codebuild-build-using-github-webhook/) to create your GitHub Hook
 
-## GitHub environment variables
+### GitHub environment variables
 Set the following GitHub environment variable
 ```
 export GITHUB_TOKEN=personal-authentication-token
 ```
 
-## Installing Packages
+### Installing Packages
 ```
 $ npm install
 ```
 
-## Deploying Pipelines
+### Deploying Pipelines
 ```
 $ cdk bootstrap
 $ cdk deploy InfrastructurePipelineStack
@@ -111,21 +95,21 @@ $ cdk deploy FrontendPipelineStack
 $ cdk deploy CardanoBinariesPipelineStack
 ```
 
-## Deleting Pipelines
+### Deleting Pipelines
 ```
 $ cdk destroy InfrastructurePipelineStack
 $ cdk destroy FrontendPipelineStack
 $ cdk destroy CardanoBinariesPipelineStack
 ```
 
-## Connecting to bastion host
+### Connecting to bastion host
 Bastion host instance allows connecting to resources in private subnet, such as RDS
 To connect to bastion, use:
 ```
 $ bin/connect bastion
 ```
 
-## Monitoring cardano node
+### Monitoring cardano node
 ```
 [local $] bin/connect cardano-node
 
@@ -133,7 +117,7 @@ $ bin/connect bastion
 [cardano-node $] /cardano/glive-view/glive-view.sh
 ``` 
 
-## Testing connection to cardano node from bastion
+### Testing connection to cardano node from bastion
 ```
 [local $] bin/connect bastion
 
@@ -142,8 +126,7 @@ Connection to cardano-node.akkadia.internal 3001 port [tcp/*] succeeded!
 
 ```
 
-
-## Useful commands
+## Useful AWS CDK commands
 
  * `npm run build`   compile typescript to js
  * `npm run watch`   watch for changes and compile
