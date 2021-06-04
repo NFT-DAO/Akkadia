@@ -14,11 +14,18 @@
  * limitations under the License. 
  *
  */
+// TODO Change this to get / client / something more indicative.
+//      It is not blockfrost functionality,
+//      but helpers for send HTTP GET requests.
 import blockfrost from './get.js';
 
+// TODO Store in environment variables, Document purpose.
 // const key = "QFwD2lHa2iYRXBUxOg6FsXs3AV8OS1KY"; // Mainnet Key
+// TODO Store in environment variables, Document purpose.
 // const chain = "cardano-mainnet"; // Mainnet Chain
+// TODO Store in environment variables, Document purpose.
 const key = "gBK7ZLMYhMxrjW8eRUQRu2c7SRAmkkML"; // Testnet Key
+// TODO Store in environment variables, Document purpose.
 const chain = "cardano-testnet"; // Testnet Chain
 
 /**
@@ -68,6 +75,9 @@ const getMetadata = (trxHash) => {
  * @param {string} queryParams Additional query parameters defined in Blockfrost's docs.
  * @returns {Promise}
  */
+// TODO Change deprecated blockfrost API endpoint
+// TODO Declare queryParams individually, page count etc...
+// TODO Format queryParams individually, instead of doing +queryParams.
 const getAddressHistory = (publicAddress, queryParams='') => {
   const url = `https://${chain}.blockfrost.io/api/v0/addresses/${publicAddress}/txs`+queryParams;
   return blockfrost.get(url, key);
