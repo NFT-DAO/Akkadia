@@ -1,4 +1,4 @@
-The Mutual Knowledge Software Development Assessment
+The Mutual Knowledge Software Development Assessment  
 Jun 1- 4, 2021
 
 Hello NFT-DAO Community,
@@ -62,10 +62,10 @@ We are excited to be working with MuKn and some other professionals moving the p
 forward using contractors as was the initial plan. MuKn will provide their expertise and
 extended dev relationships to meet the requirements.
 
-Warm Regards,
+Warm Regards,  
 Rich Kopcho
 
-**Consultation Cost**
-$7250 total (4102 ADA)
-$5621.76 ÷ 1.83 = 3072ADA
-$1811.24 ÷ 1.76 = 1030ADA
+**Consultation Cost**  
+$7250 total (4102 ADA)  
+$5621.76 ÷ 1.83 = 3072ADA  
+$1811.24 ÷ 1.76 = 1030ADA  
