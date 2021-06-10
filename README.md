@@ -24,7 +24,7 @@ their holon and teams. Which they did, and held team meetings to progress our go
 new and experimental and each will attest much learning occurred both personally and
 organizationally.
 
-**Software Development**
+**Software Development**  
 In the early days, we had a few developers contributing ideas. No one really stepping up to
 build a product and we were prepared to hire a contractor to develop the solution, until
 Michael Yagi came into the picture and assumed the Lead over a developer holon. Michael
