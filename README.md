@@ -41,7 +41,7 @@ recognize everyone’s work. A Governance token would be too far out.
 
 As the fund-3 proposal states, we were seeking ways to commercialize our work to have a long-
 term sustainable DAO. A few devs felt they needed some assurances they would be
-remunerated for their contributions and the code was being held in a private repo only theyhad access to. We offered the devs ADA equal to their time at USD120,000/yr. which they
+remunerated for their contributions and the code was being held in a private repo only they had access to. We offered the devs ADA equal to their time at USD120,000/yr. which they
 refused as they believed the monetary value of their code in equity or Gov tokens would be
 greater. However, we were not in a position yet to offer equity or Gov tokens as those aren’t
 formulated. Ultimately 3 of the devs decided to finish up the MVP Ticket Sale app and depart to
