@@ -17,6 +17,10 @@
 import shell from './run.js';
 import fs from "fs";
 
+// TODO Abstract into 2 environment variables:
+//      One for indicating development / production environment
+//      Another for pointing to testnet id.
+// TODO Document this.
 // const MAINNET = '--mainnet'; // MAINNET
 const MAINNET = '--testnet-magic 1097911063'; // TESTNET
 
@@ -141,28 +145,35 @@ const mintingString = (low, high, policyId, assetBase, precision=5) => {
  * @param {object} tokens The bank of available tokens to send.
  * @param {object} addresses An object of addresses and values.
  */
+// TODO Declare implementation / Refactor to make it declarative.
+// TODO Use format strings in function implementation rather than appending string fragments.
 const customTxOut = (sender, tokens, addresses) => {
   // https://docs.cardano.org/en/latest/native-tokens/minimum-ada-value-requirement.html
+  // TODO Clarify what this means:
   // MiniADA is actually a calculation.
-  const minADA = 1481480;
+  const minADA = 1481480; // TODO Use Naming conventions for constants: const MIN_ADA = ...
   let txout = '';
+  // TODO Rephrase with functionality
+  //      Filter through all output addresses to do ...
+  //      For all output addresses do ...
+  //      For all Buyers do ...
   // Loop all output address
   for (const addr in addresses) {
-    txout += addr +'+'+ minADA + '+';
+    txout += addr +'+'+ minADA + '+'; // TODO use format strings
     const amounts = addresses[addr];
     // amounts is an object of tokens to be sent
-    txout += '"'
+    txout += '"' // TODO Use format strings
     for (const id in amounts) {
       const amt = amounts[id];
-      txout += ''+ amt + ' ' + id + ' + '
+      txout += ''+ amt + ' ' + id + ' + ' // TODO use format strings
       tokens[id] -= amt; // account for tokens being sent out for change.
     }
-    txout = txout.slice(0, -3);
+    txout = txout.slice(0, -3); // TODO Clarify purpose
     txout += '" --tx-out '; 
   }
   // Calculate lovelace cost.
   const N = Object.keys(addresses).length;
-  tokens.lovelace -= N*minADA;
+  tokens.lovelace -= N*minADA; // TODO Document this formula, Why / How it is used, etc...
   
   txout += sender +'+'+ tokens.lovelace + '+';
   txout += '"'
@@ -295,8 +306,8 @@ const customTxOut = (sender, tokens, addresses) => {
 
 // Export
 export default {
-  write,
-  read,
+  write, // TODO Move to file utilities etc... Not transaction specific
+  read, // TODO Move to file utilities etc... Not transaction specific
   params,
   utxo,
   processUtxo,

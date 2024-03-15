@@ -30,10 +30,12 @@ import trx from './transaction.js';
  * @param {int} precision The number of zeros
  */
 const mint = (sender, skey, policyScript, policyskey, metadata, low, high, policyId, assetBase, precision=5) => {
+  // TODO Sequence this async action before its dependencies
   // Get Protocols
   trx.params().then((params) => {
     trx.write('protocol.json', params)
   });
+  // TODO Sequence this async action before its dependencies
   // Get Sender UTXO
   trx.utxo(sender).then((utxo) => {
     trx.write('utxo.json', utxo)
@@ -45,6 +47,7 @@ const mint = (sender, skey, policyScript, policyskey, metadata, low, high, polic
   txout = txout.slice(0, -1) + ' + ' + mintString.slice(1)
   // Get chain tip
   trx.tip().then((value) => {
+    // TODO Unit test the parser
     const final = JSON.parse(value).slot + 250000;
     // Build draft transaction
     trx.buildRawMint(txin, txout , mintString, 0, final, metadata, 'tx.draft')
